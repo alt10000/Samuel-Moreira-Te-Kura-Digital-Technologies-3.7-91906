@@ -6,11 +6,13 @@
     padding: 5px;
 }
 
+/* container div */
 .container div {
     background-color: lightcyan;
     border: 1px solid black;
     padding: 5px;
-    font-size: 50px;
+    font-size: 70px;
     text-align: center;
+    height: auto;
 }
 
