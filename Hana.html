@@ -24,7 +24,6 @@
   BODY
 ****************************************************-->
 <body>
-  <script src="App.js"></script>
 
   <div class="container">
     <div></div>
@@ -49,11 +48,15 @@
 
     <div></div>
     <div></div>
+    <!--displays the current amount of spending money Hana has left-->
     <div class="hanaCurrent"></div>
     <div></div>
     <div></div>
     <div></div>
-    <div class="hanaSpend"></div>
+    <!--the input for how much Hana spends on clothes-->
+    <div class="hanaSpend">
+        <input type="number" id="hanaAllowanceInput" placeholder="what has Hana spent?" style="font-size: 15px; text-align: center">
+    </div>
     <div></div>
     <div></div>
 
@@ -61,7 +64,10 @@
     <div></div>
     <div></div>
     <div></div>
-    <div class="hanaEndYear"></div>
+    <!--a button to be pressed at the ned of the year, resets allowance back to 300 and gives reward if money left is above 50-->
+    <div class="hanaEndYear" style="cursor: pointer;">
+        end of year?
+    </div>
     <div></div>
     <div></div>
     <div></div>
@@ -87,6 +93,8 @@
     <div></div>
     <div></div>
   </div>
+
+  <script type="module" src="App.js"></script>
 
 </body>
 

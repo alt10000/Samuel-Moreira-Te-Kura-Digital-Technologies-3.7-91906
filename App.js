@@ -36,3 +36,29 @@
         }
         });
     }
+
+    const hanaEndYearButton = document.querySelector(".hanaEndYear")
+
+    if (hanaEndYearButton) {
+        hanaEndYearButton.addEventListener("click", async () => {
+        try {
+            await set(ref(db, "children/Hana/allowance"), 300);
+            console.log("New Year for Hana")
+        } catch (err) {
+            console.log("hanaEndYearButton faliure")
+        }
+        });
+    }
+
+    const tiaEndYearButton = document.querySelector(".tiaEndYear")
+
+    if (tiaEndYearButton) {
+        tiaEndYearButton.addEventListener("click", async () => {
+        try {
+            await set(ref(db, "children/Tia/allowance"), 300);
+            console.log("New Year for Tia")
+        } catch (err) {
+            console.log("tiaEndYearButton faliure")
+        }
+        });
+    }

@@ -24,7 +24,6 @@
   BODY
 ****************************************************-->
 <body>
-  <script src="App.js"></script>
 
   <div class="container">
     <div></div>
@@ -49,11 +48,15 @@
 
     <div></div>
     <div></div>
+    <!--displays the current amount of spending money Tia has left-->
     <div class="tiaCurrent"></div>
     <div></div>
     <div></div>
     <div></div>
-    <div class="tiaSpend"></div>
+    <!--the input for how much Tia spends on clothes-->
+    <div class="tiaSpend">
+        <input type="number" id="tiaAllowanceInput" placeholder="what has Tia spent?" style="font-size: 15px; text-align: center">
+    </div>
     <div></div>
     <div></div>
 
@@ -61,7 +64,10 @@
     <div></div>
     <div></div>
     <div></div>
-    <div class="tiaEndYear"></div>
+    <!--a button to be pressed at the ned of the year, resets allowance back to 300 and gives reward if money left is above 50-->
+    <div class="tiaEndYear" style="cursor: pointer;">
+        end of year?
+    </div>
     <div></div>
     <div></div>
     <div></div>
@@ -87,6 +93,8 @@
     <div></div>
     <div></div>
   </div>
+
+  <script type="module" src="App.js"></script>
 
 </body>
 
