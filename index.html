@@ -101,7 +101,7 @@
     // https://firebase.google.com/docs/web/setup#available-libraries
 
     // wasn't sure what things needed to be imported because I lost my old firebase code, asked an ai, this is ai!
-    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
 
     //the firebase config, bunch of stuff that identifies my firebase database and allows for me to access it from JS
     const firebaseConfig = {
@@ -112,16 +112,17 @@
       messagingSenderId: "453460675550",
       appId: "1:453460675550:web:592a2bb1a0ffb73632ab4f",
       measurementId: "G-W3DXTLK0BP"
+      databseURL: "https://dtech-3-7-te-kura-default-rtdb.asia-southeast1.firebasedatabase.app/"
     };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-    const db = getFirestore(app);
+    const db = getDatabase(app);
 
     async function nikauNewYear() {
       try {
-        await setDoc(doc(db, "children", "Nikau"), {
+        await set(ref(db, "children/Nikau"), {
           name: "Nikau",
           allowance: 300,
         });
