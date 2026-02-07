@@ -41,11 +41,12 @@
     const nikauSpendInput = document.getElementById("nikauAllowanceInput");
     const allowanceRefNikau = ref(db, "children/Nikau/allowance");
 
-
+    //Nikau money spent input, the event listener listens for the enter key to be pressed, when on nikauSpendInput (one of the boxes on Nikaus page)
     if (nikauSpendInput) {
         nikauSpendInput.addEventListener("keypress", async (e) => {
             if (e.key !== "Enter") return;
 
+            //if the amount input is a negative number, it will be detected and blocked from going through, an alert will appear informing you to not input negative numbers
             const spendAmount = Number(nikauSpendInput.value.trim());
             if (isNaN(spendAmount) || spendAmount <= 0) {
                 alert("enter a positive number");
@@ -85,11 +86,12 @@
     const hanaSpendInput = document.getElementById("hanaAllowanceInput");
     const allowanceRefHana = ref(db, "children/Hana/allowance");
 
-
+    //Hana money spent input, the event listener listens for the enter key to be pressed, when on hanaSpendInput (one of the boxes on Hanas page)
     if (hanaSpendInput) {
         hanaSpendInput.addEventListener("keypress", async (e) => {
             if (e.key !== "Enter") return;
 
+            //if the amount input is a negative number, it will be detected and blocked from going through, an alert will appear informing you to not input negative numbers
             const spendAmount = Number(hanaSpendInput.value.trim());
             if (isNaN(spendAmount) || spendAmount <= 0) {
                 alert("enter a positive number");
@@ -128,11 +130,12 @@
     const tiaSpendInput = document.getElementById("tiaAllowanceInput");
     const allowanceRefTia = ref(db, "children/Tia/allowance");
 
-
+    //Tia money spent input, the event listener listens for the enter key to be pressed, when on tiaSpendInput (one of the boxes on Tias page)
     if (tiaSpendInput) {
         tiaSpendInput.addEventListener("keypress", async (e) => {
             if (e.key !== "Enter") return;
 
+            //if the amount input is a negative number, it will be detected and blocked from going through, an alert will appear informing you to not input negative numbers
             const spendAmount = Number(tiaSpendInput.value.trim());
             if (isNaN(spendAmount) || spendAmount <= 0) {
                 alert("enter a positive number");
