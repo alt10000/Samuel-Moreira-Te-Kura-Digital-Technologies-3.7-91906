@@ -37,6 +37,11 @@
         });
     }
 
+    //declaring stuff
+    const nikauSpendInput = document.getElementById("nikauAllowanceInput");
+    const allowanceRef = ref(db, "children/Nikau/allowance");
+
+
     if (nikauSpendInput) {
         nikauSpendInput.addEventListener("keypress", async (e) => {
             if (e.key !== "Enter") return;
