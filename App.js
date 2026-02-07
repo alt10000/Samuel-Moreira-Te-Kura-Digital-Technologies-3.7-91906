@@ -39,7 +39,7 @@
 
     //declaring stuff
     const nikauSpendInput = document.getElementById("nikauAllowanceInput");
-    const allowanceRef = ref(db, "children/Nikau/allowance");
+    const allowanceRefNikau = ref(db, "children/Nikau/allowance");
 
 
     if (nikauSpendInput) {
@@ -53,11 +53,11 @@
             }
 
             try {
-                const snap = await get(allowanceRef);
+                const snap = await get(allowanceRefNikau);
                 const current = snap.exists() ? Number(snap.val()) : 0;
                 const newValue = current - spendAmount;
 
-                await set(allowanceRef, newValue);
+                await set(allowanceRefNikau, newValue);
                 nikauSpendInput.value = "";
                 console.log(`Spent $${spendAmount} → $${newValue}`);
             } catch (err) {
@@ -81,6 +81,36 @@
         });
     }
 
+    //declaring stuff
+    const hanaSpendInput = document.getElementById("hanaAllowanceInput");
+    const allowanceRefHana = ref(db, "children/Hana/allowance");
+
+
+    if (hanaSpendInput) {
+        hanaSpendInput.addEventListener("keypress", async (e) => {
+            if (e.key !== "Enter") return;
+
+            const spendAmount = Number(hanaSpendInput.value.trim());
+            if (isNaN(spendAmount) || spendAmount <= 0) {
+                alert("enter a positive number");
+                return;
+            }
+
+            try {
+                const snap = await get(allowanceRefHana);
+                const current = snap.exists() ? Number(snap.val()) : 0;
+                const newValue = current - spendAmount;
+
+                await set(allowanceRefHana, newValue);
+                hanaSpendInput.value = "";
+                console.log(`Spent $${spendAmount} → $${newValue}`);
+            } catch (err) {
+                console.error("Input didn't go through:", err);
+            }
+        });
+    }
+
+
     const tiaEndYearButton = document.querySelector(".tiaEndYear")
 
     if (tiaEndYearButton) {
@@ -91,5 +121,34 @@
         } catch (err) {
             console.log("tiaEndYearButton faliure")
         }
+        });
+    }
+
+    //declaring stuff
+    const tiaSpendInput = document.getElementById("tiaAllowanceInput");
+    const allowanceRefTia = ref(db, "children/Tia/allowance");
+
+
+    if (tiaSpendInput) {
+        tiaSpendInput.addEventListener("keypress", async (e) => {
+            if (e.key !== "Enter") return;
+
+            const spendAmount = Number(tiaSpendInput.value.trim());
+            if (isNaN(spendAmount) || spendAmount <= 0) {
+                alert("enter a positive number");
+                return;
+            }
+
+            try {
+                const snap = await get(allowanceRefTia);
+                const current = snap.exists() ? Number(snap.val()) : 0;
+                const newValue = current - spendAmount;
+
+                await set(allowanceRefTia, newValue);
+                tiaSpendInput.value = "";
+                console.log(`Spent $${spendAmount} → $${newValue}`);
+            } catch (err) {
+                console.error("Input didn't go through:", err);
+            }
         });
     }
