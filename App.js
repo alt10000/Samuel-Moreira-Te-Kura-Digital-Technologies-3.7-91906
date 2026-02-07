@@ -26,9 +26,13 @@
 
     const nikauEndYearButton = document.querySelector(".nikauEndYear")
 
-    nikauEndYearButton.addEventListener("click", async () => {
-      try {
-        await set(ref(db, "children/Nikau/allowance"), 300);
-        console.log("New Year for Nikau")
-      }
-    });
+    if (nikauEndYearButton) {
+        nikauEndYearButton.addEventListener("click", async () => {
+        try {
+            await set(ref(db, "children/Nikau/allowance"), 300);
+            console.log("New Year for Nikau")
+        } catch (err) {
+            console.log("nikauEndYearButton faliure")
+        }
+        });
+    }
