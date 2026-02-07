@@ -37,6 +37,32 @@
         });
     }
 
+    if (nikauSpendInput) {
+        nikauSpendInput.addEventListener("keypress", async (e) => {
+            if (e.key !== "Enter") return;
+
+            const spendAmount = Number(nikauSpendInput.value.trim());
+            if (isNaN(spendAmount) || spendAmount <= 0) {
+                alert("enter a positive number");
+                return;
+            }
+
+            try {
+                const snap = await get(allowanceRef);
+                const current = snap.exists() ? Number(snap.val()) : 0;
+                const newValue = current - spendAmount;
+
+                await set(allowanceRef, newValue);
+                nikauSpendInput.value = "";
+                console.log(`Spent $${spendAmount} → $${newValue}`);
+            } catch (err) {
+                console.error("Input didn't go through:", err);
+            }
+        });
+    }
+    
+
+
     const hanaEndYearButton = document.querySelector(".hanaEndYear")
 
     if (hanaEndYearButton) {
